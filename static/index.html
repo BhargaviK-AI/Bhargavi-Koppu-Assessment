@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trip Risk Check</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand"><span class="logo" aria-hidden="true">✈</span> Trip Risk Check</div>
+      <div class="sub">Disruption check for U.S. air travel · live public data</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card search">
+      <form id="nl-form" class="nl">
+        <label for="nl">Describe your trip</label>
+        <div class="row">
+          <input id="nl" type="text" placeholder="e.g. New York to San Francisco tomorrow" autocomplete="off" />
+          <button type="submit">Check trip</button>
+        </div>
+      </form>
+      <details id="manual" class="manual">
+        <summary>Or enter details</summary>
+        <form id="form" class="grid">
+          <label>From <input id="origin" list="ap-list" required placeholder="City or code" /></label>
+          <label>To <input id="destination" list="ap-list" required placeholder="City or code" /></label>
+          <label>Connecting via <span class="opt">(optional)</span> <input id="via" list="ap-list" placeholder="e.g. ORD" /></label>
+          <label>Date <input id="date" type="date" required /></label>
+          <button type="submit">Check trip</button>
+        </form>
+        <datalist id="ap-list"></datalist>
+      </details>
+      <p id="parse-note" class="note" hidden></p>
+    </section>
+
+    <section id="status" class="status" hidden></section>
+    <section id="result" hidden></section>
+  </main>
+
+  <footer class="wrap foot">
+    Sources: FAA NAS Status · National Weather Service · NOAA Aviation Weather Center · Open-Meteo · OurAirports.
+    Prototype; not affiliated with any airline. Always confirm with your airline.
+  </footer>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
